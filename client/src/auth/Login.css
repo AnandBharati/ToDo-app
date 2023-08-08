@@ -6,3 +6,15 @@ input[type='text']{
     width: 100%;
     box-sizing: border-box;
 }
+
+@media only screen and (max-width: 768px){
+    .login__container{
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    .login__container{
+        width: 95vw;
+    }
+}
