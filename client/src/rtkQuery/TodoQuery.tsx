@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { todoStateObj } from '../store/todo.reducer.type'
 import { loginReturnType, loginType, signupReturnType, signupType } from './Auth.model';
 
-
+//http://localhost:2000
 export const ToDosApi = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:2000" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://turquoise-dibbler-belt.cyclic.app" }),
     tagTypes: ['todos'],
     endpoints: (builder) => ({
         getTodos: builder.query<todoStateObj[], string>({

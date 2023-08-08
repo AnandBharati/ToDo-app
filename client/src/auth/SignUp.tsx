@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useRegisterMutation } from '../rtkQuery/TodoQuery'
 import './SignUp.css'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 type inputType = {
     username: string
@@ -11,8 +12,9 @@ type inputType = {
 }
 
 function SignUp() {
+    const navigate = useNavigate()
 
-    const [registerUser, { isLoading }] = useRegisterMutation()
+    const [registerUser, { isLoading, isSuccess, isError }] = useRegisterMutation()
 
     const [values, setValues] = useState<inputType>({
         username: '', email: '', password: '', cnfm_password: ''
@@ -26,8 +28,41 @@ function SignUp() {
     }
 
     function SubmitForm() {
-        registerUser(values);
+        if (values.username && values.email && values.password && values.cnfm_password) {
+            if (values.password === values.cnfm_password) {
+                registerUser(values);
+            } else {
+                toast.error('confirm password does not match', {
+                    position: 'bottom-left'
+                })
+            }
+        }
+        else {
+            toast.error('please enter all the fields', {
+                position: 'bottom-left'
+            })
+        }
     }
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success('user registered successfully', {
+                position: 'bottom-left'
+            })
+            navigate('/login');
+        }
+    }, [isSuccess]);
+
+    useEffect(() => {
+        if (isError) {
+            toast.error('error while registering user', {
+                position: 'bottom-left'
+            });
+            setValues({
+                username: '', email: '', password: '', cnfm_password: ''
+            });
+        }
+    }, [isError])
 
     if (isLoading) return <h1 className='h1'> Loading... </h1>
 

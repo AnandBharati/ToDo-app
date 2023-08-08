@@ -26,7 +26,7 @@ function Nav() {
         >
             <h3 className="h3 mx-3 mt-2 ">Hi {displayName}...</h3>
             {/* <SiTodoist/> */}
-            {_id && <h4 className="btn btn-primary mx-3 my-2" onClick={signoutHandler} > signout </h4>}
+            {_id && <h4 className="btn btn-primary mx-3 my-2" onClick={signoutHandler} > Logout </h4>}
         </nav >
     )
 }
