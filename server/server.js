@@ -32,3 +32,4 @@ app.get('/', (_, res) => {
 
 app.use('/todo', todoRoutes)
 app.use('/auth', authRoutes)
+
