@@ -12,7 +12,8 @@ const reducer = combineReducers({
 
 export const store = configureStore({
     reducer,
-    middleware: (getDefaultMiddleware:any) => getDefaultMiddleware().concat(ToDosApi.middleware),
+    middleware: [...getDefaultMiddleware() ,ToDosApi.middleware],
+    // middleware: (getDefaultMiddleware:any) => getDefaultMiddleware().concat(ToDosApi.middleware),
     
 })
 

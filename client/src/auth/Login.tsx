@@ -5,7 +5,7 @@ import './Login.css'
 import { ChangeEvent, useState, useEffect } from 'react'
 import { setUser } from '../store/auth.reducer'
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify'
+import {  toast } from 'react-toastify'
 
 type inputType = {
     username: string
@@ -35,7 +35,8 @@ function Login() {
             login(values);
         else
             toast.error('username or password is not entered', {
-                position: 'bottom-left'
+                position: 'bottom-left',
+                toastId:'incorrect_cred'
             })
     }
 
@@ -55,7 +56,8 @@ function Login() {
 
     if (isLoading) return <h1 className='h1'> Loading...</h1>
     if (isError) toast.error('please enter correct username and password', {
-        position: 'bottom-left'
+        position: 'bottom-left',
+        toastId: 'login_error'
     })
 
     return (

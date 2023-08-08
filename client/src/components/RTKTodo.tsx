@@ -4,7 +4,6 @@ import uniqid from 'uniqid';
 import { ClipLoader } from 'react-spinners'
 import Item from "./Item";
 import { useSelector } from "react-redux";
-import { authStateType } from "../store/auth.reducer";
 import { RootState } from "../store/store";
 
 
