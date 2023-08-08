@@ -1,0 +1,33 @@
+.item.completed{
+    background-color: grey;
+    color: #0f1921;
+}
+
+.item{
+    width: auto;
+    background-color: #0f1921;
+    color: #fff;
+}
+
+.item .left span{
+    word-wrap: break-word;
+}
+
+.todo__container{
+    width: clamp(300px ,80vw, 500px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo__container ul{ /*item container*/
+    width: clamp(300px ,80vw, 1000px);
+    /* background: #000; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    column-gap: 1rem;
+}
