@@ -49,11 +49,6 @@ function Login() {
         data?.success && dispatch(setUser(data));
     }, [lData])
 
-    // useEffect(() => {
-    //     //checking if localstorage is having auth already
-    //     lData && console.log('already logged in')
-    // }, []);
-
     if (isLoading) return <h1 className='h1'> Loading...</h1>
     if (isError) toast.error('please enter correct username and password', {
         position: 'bottom-left',

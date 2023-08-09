@@ -77,7 +77,7 @@ function RTKTodo() {
                     onChange={changeHandler} />
                 <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary px-3"
                     onClick={(e) => addNewTodoHandler(e)}>add</button>
             </div>
 
