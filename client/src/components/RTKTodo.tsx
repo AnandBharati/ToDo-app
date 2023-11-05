@@ -78,7 +78,7 @@ function RTKTodo() {
     return (
         <div className="todo__container self-start mt-16 w-auto p-4">
             <h1 className="mb-7 text-5xl font-semibold">ToDo App</h1>
-            <div className="join input-group mb-7">
+            <div className="join input-group mb-7 flex justify-center">
                 <input type="text"
                     placeholder="Enter you task here.."
                     className="input m-0 p-3 text-xl border-2 border-slate-200 form-control focus:border-transparent"
