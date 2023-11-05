@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react'
 import './rtktodo.css'
+import { MdDeleteOutline } from 'react-icons/md'
 
 type ItemPropsType = {
     id: string
@@ -13,32 +14,33 @@ function Item({ id, name, isCompleted, removeTodoHandler, completeTodoHandler }:
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.checked
-        completeTodoHandler(id,value);
+        completeTodoHandler(id, value);
     }
 
 
     return <li
         key={id}
-        className={`item input-group mb-2 p-2 d-flex justify-content-between ${isCompleted ? 'completed' : ''}`}
+        className={`item p-2 flex flex-row justify-between items-center ${isCompleted ? 'completed' : ''}`}
         style={{ width: 'clamp(200px, 100%, 300px)' }}
     >
-        <div className="left">
+        <div className="left flex items-center">
             <input
-                className={`form-check-input p-2 m-1`}
+                className={`form-check-input p-2 m-1 checkbox checkbox-info rounded-full`}
                 type="checkbox"
-                style={{ borderRadius: '4px' }}
                 checked={isCompleted}
                 onChange={onChangeHandler}
             />
-            <span className="">{name}</span>
+            <span className="ml-2">{name}</span>
         </div>
 
-        <div data-bs-theme="dark">
+        <div className="text-xl">
             <button type="button"
-                className="btn-close text-white"
+                className=" btn-close text-white hover:scale-125"
                 aria-label="Close"
                 onClick={() => removeTodoHandler(id)}
-            ></button>
+            >
+                <MdDeleteOutline />
+            </button>
         </div>
     </li>
 }

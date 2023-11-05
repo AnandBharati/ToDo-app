@@ -5,17 +5,18 @@ import { ClipLoader } from 'react-spinners'
 import Item from "./Item";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { toast } from "react-toastify";
 
 
 const override: CSSProperties = {
     display: "block",
     margin: '0 auto',
-    borderColor: "red",
+    borderColor: "green",
 };
 
 
 function RTKTodo() {
-    const {_id} = useSelector((state: RootState)=>state.authReducer) ;
+    const { _id } = useSelector((state: RootState) => state.authReducer);
     const { data, isLoading, isError, isSuccess, isFetching } = useGetTodosQuery(_id);
     const [postTodo, { isLoading: pIsLoading }] = usePostTodoMutation();
     const [removeTodo, { isLoading: dIsLoading }] = useDeleteTodoMutation()
@@ -43,14 +44,22 @@ function RTKTodo() {
 
     function addNewTodoHandler(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        const task = {
-            id: uniqid(),
-            name: input,
-            isCompleted: false,
-            createdBy: _id,
-        };
-        postTodo(task);
-        setInput('');
+        if (input) {
+            const task = {
+                id: uniqid(),
+                name: input,
+                isCompleted: false,
+                createdBy: _id,
+            };
+            postTodo(task);
+            setInput('');
+        }
+        else toast.warn("task cannot be empty", {
+            delay: .5,
+            // toastId: 'task_empty',
+            position: 'bottom-right',
+            className: 'bg-neutral text-base-100'
+        })
         // refetch();
     }
 
@@ -67,17 +76,18 @@ function RTKTodo() {
     }
 
     return (
-        <div className="todo__container container">
-            <h1 className="display-1 m-5">ToDo App</h1>
-            <div className="input-group mb-5">
+        <div className="todo__container self-start mt-16 w-auto p-4">
+            <h1 className="mb-7 text-5xl font-semibold">ToDo App</h1>
+            <div className="join input-group mb-7">
                 <input type="text"
-                    className="form-control"
-                    style={{ border: '2px solid #3333' }}
+                    placeholder="Enter you task here.."
+                    className="input m-0 p-3 text-xl border-2 border-slate-200 form-control focus:border-transparent"
+                    style={{ border: '2px solid #3333', marginLeft: '0 !important' }}
                     value={input}
                     onChange={changeHandler} />
                 <button
                     type="button"
-                    className="btn btn-primary px-3"
+                    className="btn-primary px-5 m-0 text-lg uppercase"
                     onClick={(e) => addNewTodoHandler(e)}>add</button>
             </div>
 

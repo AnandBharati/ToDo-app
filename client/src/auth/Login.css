@@ -1,20 +1,20 @@
-.login__container{
-    width: min(50vw , 400px );
+.login__container {
+    width: clamp(400px, 50vw, 500px);
 }
 
-input[type='text']{
+input[type='text'] {
     width: 100%;
     box-sizing: border-box;
 }
 
-@media only screen and (max-width: 768px){
-    .login__container{
+@media only screen and (max-width: 768px) {
+    .login__container {
         width: 80vw;
     }
 }
 
-@media only screen and (max-width: 576px){
-    .login__container{
+@media only screen and (max-width: 576px) {
+    .login__container {
         width: 95vw;
     }
 }

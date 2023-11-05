@@ -67,52 +67,52 @@ function SignUp() {
     if (isLoading) return <h1 className='h1'> Loading... </h1>
 
     return (
-        <div className="signup__container container vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div className="container-fluid bg-white p-5 rounded-3 d-flex flex-column justify-content-center shadow-lg">
+        <div className="signup__container py-9  d-flex flex-col items-center justify-center">
+            <div className="px-5 rounded-3 flex flex-col justify-center items-center shadow-xl rounded-xl">
 
-                <h1 className='h1 mb-4 align-self-center font-weight-bold'>Sign Up</h1>
+                <h1 className='text-4xl mb-4 text-center font-bold'>Sign Up</h1>
 
-                <div className="mb-3 ">
+                <div className="mb-3 w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Username</label>
                     <input type="text"
-                        className="form-control"
+                        className="input mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="Username"
                         value={values.username}
                         onChange={changeHandler}
                         name="username" />
                 </div>
 
-                <div className="mb-3 ">
+                <div className="mb-3  w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
                     <input type="text"
-                        className="form-control"
+                        className="input mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="xyz@gmail.com"
                         value={values.email}
                         onChange={changeHandler}
                         name="email" />
                 </div>
 
-                <div className="mb-3 ">
+                <div className="mb-3  w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Password</label>
                     <input type="password"
-                        className="form-control"
+                        className="input w-full  mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="enter password"
                         value={values.password}
                         onChange={changeHandler}
                         name="password" />
                 </div>
 
-                <div className="mb-3 ">
+                <div className="mb-3 w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Confirm Password</label>
                     <input type="password"
-                        className="form-control"
+                        className="input w-full mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="re-enter password"
                         value={values.cnfm_password}
                         onChange={changeHandler}
                         name="cnfm_password" />
                 </div>
 
-                <button className='btn btn-primary mt-2 w-100' onClick={SubmitForm}>Submit</button>
+                <button className='btn btn-primary mt-2 w-full' onClick={SubmitForm}>Submit</button>
                 <button className='btn btn-link mt-2'>
                     <Link to='/login'>
                         Already have an account? Login

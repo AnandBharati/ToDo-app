@@ -5,7 +5,7 @@ import './Login.css'
 import { ChangeEvent, useState, useEffect } from 'react'
 import { setUser } from '../store/auth.reducer'
 import { Link } from 'react-router-dom';
-import {  toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 type inputType = {
     username: string
@@ -36,17 +36,19 @@ function Login() {
         else
             toast.error('username or password is not entered', {
                 position: 'bottom-left',
-                toastId:'incorrect_cred'
+                toastId: 'incorrect_cred'
             })
     }
 
     useEffect(() => {
         data?.success && setLdata(data)
         // console.log('useeffect executed')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSuccess]);
 
     useEffect(() => {
         data?.success && dispatch(setUser(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lData])
 
     if (isLoading) return <h1 className='h1'> Loading...</h1>
@@ -56,30 +58,30 @@ function Login() {
     })
 
     return (
-        <div className="login__container container vh-100 d-flex flex-column align-items-center justify-content-center">
-            <div className="container-fluid bg-white p-5 rounded-3 d-flex flex-column justify-content-center shadow-lg">
-                <h1 className='h1 mb-4 align-self-center font-weight-bold'>Login</h1>
-                <div className="mb-3 ">
+        <div className="login__container rounded-lg">
+            <div className="p-5 flex flex-col justify-center items-center">
+                <h1 className='text-4xl mx-auto mb-6 font-bold'>Login to continue..</h1>
+                <div className="mb-3 w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Username</label>
                     <input type="text"
-                        className="form-control"
+                        className="input w-full mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="Username"
                         value={values.username}
                         onChange={changeHandler}
                         name="username" />
                 </div>
 
-                <div className="mb-3 ">
+                <div className="mb-3 w-full">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Password</label>
                     <input type="password"
-                        className="form-control"
+                        className="input w-full mt-2 mb-4 border-2 border-slate-200 form-control focus:border-transparent"
                         placeholder="enter password"
                         value={values.password}
                         onChange={changeHandler}
                         name="password" />
                 </div>
 
-                <button className='btn btn-primary mt-2 w-100' onClick={submitHandler}>Login</button>
+                <button className='btn btn-primary mt-2 w-full' onClick={submitHandler}>Login</button>
 
                 <button className='btn btn-link mt-2'>
                     <Link to='/signup'>

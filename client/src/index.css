@@ -1,33 +1,53 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-} */
-
-body {
+.App {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* body {
+  display: block;
+  box-sizing: border-box;
   width: 100vw;
   min-height: 100vh;
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
+  margin: 0;
+  padding: 0;
+} */
+
+.btn {
+  @apply rounded-lg m-2 px-5 py-2
+}
+
+.container {
+  min-height: calc(100vh - 64px);
+}
+
+html {
+  transition: all .5s ease-in-out;
+}
+
+body {
   overflow-x: hidden;
-  background-color: whitesmoke;
 }
 
 
+.theme-btn:hover {
+  transition: all 1s cubic-bezier(.2, 1.14, .57, .4);
+  rotate: 1turn;
+  scale: 105%;
+}
 
-.App{
-  width: 100vw;
-  /* text-align: center; */
+.container>* {
+  box-shadow: 0 0 15px #0002;
+}
+
+.todo__container {
+  box-shadow: none;
 }

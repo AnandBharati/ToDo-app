@@ -5,12 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Layout() {
-    
+
     return (
         <>
-            <Nav/>
+            <Nav />
             <ToastContainer />
-            <Outlet />
+            <div className="container flex justify-center items-center vw-100 box-border m-0 p-0">
+                <Outlet />
+            </div>
         </>
     )
 }

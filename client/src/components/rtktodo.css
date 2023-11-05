@@ -1,6 +1,9 @@
 .item.completed {
-    background-color: grey;
-    color: #0f1921;
+    @apply bg-neutral-content text-neutral-focus;
+}
+
+.item.completed .btn-close {
+    @apply text-neutral;
 }
 
 .item {
@@ -30,7 +33,7 @@
     /* align-items: center; */
     flex-wrap: wrap;
     flex: 1 1 auto;
-    column-gap: 1rem;
+    gap: .75rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -43,7 +46,7 @@
         font-size: .9rem;
     }
 
-    .item{
+    .item {
         width: 100px;
         font-size: .9rem;
     }
