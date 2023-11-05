@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { clearUser } from "../store/auth.reducer";
 import useLocalstorage from "../hooks/useLocalstorage";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { BsSun } from 'react-icons/bs';
 import { MdOutlineDarkMode } from 'react-icons/md';
 
@@ -10,7 +10,7 @@ function Nav() {
     const dispatch = useDispatch()
     const { username, _id } = useSelector((state: RootState) => state.authReducer);
     const [lData, setLdata] = useLocalstorage('todoAuth');
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useLocalstorage('isDarkMode')
 
     function signoutHandler() {
         setLdata({});
