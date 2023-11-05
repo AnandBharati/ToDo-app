@@ -82,7 +82,7 @@ function RTKTodo() {
                 <input type="text"
                     placeholder="Enter you task here.."
                     className="input m-0 p-3 text-xl border-2 border-slate-200 form-control focus:border-transparent"
-                    style={{ border: '2px solid #3333', marginLeft: '0 !important' }}
+                    style={{ border: '2px solid #3333', marginLeft: '0 !important', width: "clamp(300px, 100%, 600px" }}
                     value={input}
                     onChange={changeHandler} />
                 <button
